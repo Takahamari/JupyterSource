@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Jupyter Network</title>
+
+    <link rel="icon" type="image/png" href="img/logo/logo.svg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cabin"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{{root}}/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="{{root}}/css/main.css" />
+  </head>
+
+  <body>
+    <div id="pageloader"></div>
+    <div id="infraloader"></div>
+    <div
+      id="mobileMenu"
+      style="
+        width: 100vw;
+        position: absolute;
+        top: 64px;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        visibility: hidden;
+      "
+    >
+      <style>
+        .menuItem {
+          color: white;
+          padding: 5px 10px;
+          font-size: large;
+          margin: 1;
+          background-color: rgba(52,52,52,0.2);
+        }
+        .menuItem:active {
+          background-color: #4A4A5B;
+        }
+      </style>
+        <a class="menuItem" href="/index.html">Landing</a><br />
+
+ 
+      <a class="menuItem" href="/roadmap.html">Roadmap</a><br />
+      <a class="menuItem" href="/tutorial.html">Tutorials</a><br />
+      <a class="menuItem" href="/lab.html">Lab</a><br />
+    </div>
+
+    {{> body}} {{> footer}} {{> backtotop}}
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/bundle.js"></script>
+  </body>
+</html>

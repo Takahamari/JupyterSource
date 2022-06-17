@@ -1,0 +1,59 @@
+<!-- Cloned navbar that comes in on scroll -->
+<nav x-data="initNavbar()"  x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark" :class="{
+        'is-active': scrolled,
+        '': !scrolled
+    }">
+    <div class="container">
+        <!-- Brand -->
+        <div class="navbar-brand">
+            <a href="index.html" class="navbar-item">
+                <img class="static" src="/img/logo/logo.svg" alt="">
+                <span class="brand-name">Jupyter Network</span>
+            </a>
+            <!-- Responsive toggle -->
+            <div class="navbar-burger" x-on:click="alert('Hello World!')">
+                <div class="menu-toggle">
+                    <span class="icon-box-toggle" :class="{
+                            'active': mobileOpen,
+                            '': !mobileOpen
+                        }">
+                        <span class="rotate">
+                            <i class="icon-line-top"></i>
+                            <i class="icon-line-center"></i>
+                            <i class="icon-line-bottom"></i>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- Menu -->
+        <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                'is-active': mobileOpen,
+                '': !mobileOpen
+            }">
+            <div class="navbar-end">
+                <!-- Menu item -->
+                <div class="navbar-item is-nav-link">
+                    <a class="is-centered-responsive" href="lab.html">Lab</a>
+                </div>
+                <!-- Menu item -->
+                <div class="navbar-item is-nav-link">
+                    <a class="is-centered-responsive" href="roadmap.html">Roadmap</a>
+                </div>
+                <!-- Menu item -->
+                <div class="navbar-item is-nav-link">
+                    <a class="is-centered-responsive" href="tutorial.html">Tutorials</a>
+                </div>
+                <!-- Menu item -->
+                <div class="navbar-item is-nav-link">
+                    <a class="is-centered-responsive" href="https://t.me/jupyterofficial" target="_blank">
+                        <img class="telegram" src="/img/logo/telegram.svg" alt="">
+                        Telegram
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- /Cloned navbar -->
