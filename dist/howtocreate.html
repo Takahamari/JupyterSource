@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Jupyter Network</title>
+
+    <link rel="icon" type="image/png" href="img/logo/logo.svg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cabin"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  </head>
+
+  <body>
+    <div id="pageloader"></div>
+    <div id="infraloader"></div>
+    <div
+      id="mobileMenu"
+      style="
+        width: 100vw;
+        position: absolute;
+        top: 64px;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        visibility: hidden;
+      "
+    >
+      <style>
+        .menuItem {
+          color: white;
+          padding: 5px 10px;
+          font-size: large;
+          margin: 1;
+          background-color: rgba(52,52,52,0.2);
+        }
+        .menuItem:active {
+          background-color: #4A4A5B;
+        }
+      </style>
+        <a class="menuItem" href="/index.html">Landing</a><br />
+
+ 
+      <a class="menuItem" href="/roadmap.html">Roadmap</a><br />
+      <a class="menuItem" href="/tutorial.html">Tutorials</a><br />
+      <a class="menuItem" href="/lab.html">Lab</a><br />
+    </div>
+
+    
+<div class="media-wrapper">
+    <!-- Landing page Hero -->
+    <section class="hero">
+        <div class="hero-head">
+
+            <!-- Cloned navbar -->
+            <!-- Cloned navbar that comes in on scroll -->
+            <nav x-data="initNavbar()"  x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark" :class="{
+                    'is-active': scrolled,
+                    '': !scrolled
+                }">
+                <div class="container">
+                    <!-- Brand -->
+                    <div class="navbar-brand">
+                        <a href="index.html" class="navbar-item">
+                            <img class="static" src="/img/logo/logo.svg" alt="">
+                            <span class="brand-name">Jupyter Network</span>
+                        </a>
+                        <!-- Responsive toggle -->
+                        <div class="navbar-burger" x-on:click="alert('Hello World!')">
+                            <div class="menu-toggle">
+                                <span class="icon-box-toggle" :class="{
+                                        'active': mobileOpen,
+                                        '': !mobileOpen
+                                    }">
+                                    <span class="rotate">
+                                        <i class="icon-line-top"></i>
+                                        <i class="icon-line-center"></i>
+                                        <i class="icon-line-bottom"></i>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Menu -->
+                    <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                            'is-active': mobileOpen,
+                            '': !mobileOpen
+                        }">
+                        <div class="navbar-end">
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="lab.html">Lab</a>
+                            </div>
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="roadmap.html">Roadmap</a>
+                            </div>
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="tutorial.html">Tutorials</a>
+                            </div>
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="https://t.me/jupyterofficial" target="_blank">
+                                    <img class="telegram" src="/img/logo/telegram.svg" alt="">
+                                    Telegram
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- /Cloned navbar -->
+            <!-- Static navbar -->
+            <!-- Static navbar -->
+            <nav  class="navbar is-light">
+              <div x-data="initNavbar()"   x-init="initNavbar()" class="container">
+                <!-- Brand -->
+                <div class="navbar-brand">
+                  <a href="index.html" class="navbar-item">
+                    <img class="static" src="/img/logo/logo.svg" alt="" />
+                    <span class="brand-name">Jupyter Network</span>
+                  </a>
+                  <!-- Responsive toggle -->
+                  <div class="navbar-burger">
+                    <button
+                      class="menu-toggle"
+                      onclick="
+                        let e = window.document.getElementById('mobileMenu')
+            
+                        if(e.style.visibility === 'visible'){
+                            e.style.visibility='visible';
+                        }else{
+                            e.style.visibility='visible';
+                        }
+            
+                      "
+                    >
+                    <p x-text="window.mobileOpen"></p>
+                      <span class="icon-box-toggle">
+                        <span class="rotate">
+                          <i class="icon-line-top"></i>
+                          <i class="icon-line-center"></i>
+                          <i class="icon-line-bottom"></i>
+                        </span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+            
+                <!-- Menu -->
+                <div id="navbarMenu" class="navbar-menu light-menu">
+                  <div class="navbar-end">
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                      <a class="is-centered-responsive" href="lab.html">Lab</a>
+                    </div>
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                      <a class="is-centered-responsive" href="roadmap.html">Roadmap</a>
+                    </div>
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                      <a class="is-centered-responsive" href="tutorial.html">Tutorials</a>
+                    </div>
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                      <a
+                        class="is-centered-responsive"
+                        href="https://t.me/jupyterofficial"
+                        target="_blank"
+                      >
+                        <img class="telegram" src="/img/logo/telegram.svg" alt="" />
+                        Telegram
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <!-- /Static navbar -->
+
+        </div>
+
+        <!-- Hero Image and Title -->
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+
+                    <!-- Landing page Title -->
+                    <div class="column is-5 is-offset-1 post-caption">
+                        <div class="divider"></div>
+                        <h1 class="title is-2 is-light is-semibold is-spaced main-title">How to create your wallet with Trust Wallet</h1>
+
+                    </div>
+                    <!-- Hero image -->
+                    <div class="column is-5">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+
+                <div class="column is-9">
+                    <!-- Content wrapper -->
+                    <div class="post-body">
+
+                        <h2>Step 1</h2>
+
+                        <p>To get the latest Trust Wallet App you should follow one of the download links on the website <a href="trustwallet.com">trustwallet.com</a></p>
+                        <img src="/img/15.png" alt="" data-aos="fade-up" data-aos-delay="100" data-aos-offset="200" data-aos-easing="ease-out-quart">
+
+                        <h2>Step 2.</h2>
+
+                        <p>Once you have downloaded and installed the app, open Trust Wallet and tap on `Create a new wallet``. In the next step you will receive your 12 word recovery phrase, which acts as a backup for you funds.</p>
+                        <p>IMPORTANT: There is no way to change or recover your 12 word phrase if it`s lost or forgotten.
+                        </p>
+                        <p>If you lose your recovery phrase you will lose your funds with it.</p>
+                        <p>Trust Wallet is completely different from traditional bank accounts.</p>
+                        <p>You are the true owner of your “Money”, Trust Wallet can never access your coins.
+                        </p>
+                        <p>It is technically not possible for us to recover wallets since we do not have access to your recovery phrase (only your 12 word recovery phrase can be used to restore access to your wallet).
+                        </p>
+
+                        <h2>Step 3.</h2>
+
+                        <p>Before you finish the step of creating the wallet, verify that you wrote down the 12 word phrase in the correct order.</p>
+                        <p>IMPORTANT: It is strongly recommended to do your backup now and store it somewhere safe!
+                        </p>
+                        <p>And that`s it, you are done!
+                            Your newly created multi-coin wallet is now ready to handle cryptocurrencies for over 30+ Blockchains, including Jupyter $IOM.</p>
+
+
+
+
+
+                        <hr>
+                    </div>
+                   
+    </section>
+</div>
+ <footer class="krypton-footer">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            <a href="index.html">
+                <img class="static" src="/img/logo/logo.svg" alt="">
+                <div class="brand-name">Jupyter Network</div>
+                <div class="brand-subtitle">Iuppiterus Optimus Maximus</div>
+            </a>
+        </div>
+        
+        <!-- Columns -->
+        <div class="columns footer-columns is-vcentered">
+            <div class="column is-4">
+                <!-- Links group -->
+                <ul class="footer-links">
+                    <li>
+                        <a href="lab.html">Lab</a>
+                    </li>
+
+                    <li>
+                        <a href="roadmap.html">Roadmap</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- Newsletter -->
+            <div class="column is-4">
+                <div class="subscribe-block">
+                    <form>
+                        <!-- Field -->
+                        <div class="control">
+                            <!-- Special input -->
+                            <p>
+                            <ul>
+                                <div className="padding-top:15px flex flex-col">
+                                    <a
+                                    href="https://twitter.com/jupytertoken" target="_blank"
+                                    className="social-icon button flex flex-col"
+                                    width="38px"
+                                    height="38px"
+                                >
+                                    <img width="40px" height="40px" src="/img/logo/twitter.svg" alt=""></img>
+                                </a>
+                                <a
+                                href="https://instagram.com/jupytertoken" target="_blank"
+                                className="social-icon button flex flex-col"
+                                width="38px"
+                                height="38px"
+                            >
+                                <img width="38px" height="38px" src="/img/logo/instagram.svg" alt=""></img>
+                            </a>
+                    <a
+                    href="https://www.facebook.com/JupyterToken/" target="_blank"
+                    className="social-icon button flex flex-col"
+                    width="50px"
+                    height="50px"
+                >
+                    <img width="40px" height="40px" src="/img/logo/facebook.svg" alt=""></img>
+                </a>
+                <a
+                href="https://jupytertech.medium.com/" target="_blank"
+                className="social-icon button flex flex-col"
+                width="50px"
+                height="50px"
+            >
+                <img width="40px" height="40px" src="/img/logo/medium.svg" alt=""></img>
+            </a>
+            <a
+                href="https://github.com/Jupyter-Network" target="_blank"
+                className="social-icon button flex flex-col"
+                width="50px"
+                height="50px"
+            >
+                <img width="40px" height="40px" src="/img/logo/github.svg" alt=""></img>
+            </a>
+                                </div>
+                                </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Links group -->
+            <div class="column is-4">
+                <ul class="footer-links">
+                    <li>
+                        <a href="tutorial.html">Tutorials</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Telegram</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <p class="k-copyright">© 2022 | Jupyter. All Rights Reserved</p>
+        <br>
+        <!-- Made by -->
+        <p class="coded-by">Designed and Coded by <a href="snnick.vercel.app" target="_blank">SNNICK</a></p>
+    </div>
+    
+    <!-- Absolute image -->
+    <img class="solar-system" src="/img/bg/solar.svg" alt="">
+</footer> <!-- Back To Top Button -->
+<div x-data="window.initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+    'visible': scrolled,
+    '': !scrolled
+}"></a></div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/bundle.js"></script>
+  </body>
+</html>

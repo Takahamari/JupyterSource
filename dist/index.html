@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Jupyter Network</title>
+
+    <link rel="icon" type="image/png" href="img/logo/logo.svg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cabin"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  </head>
+
+  <body>
+    <div id="pageloader"></div>
+    <div id="infraloader"></div>
+    <div
+      id="mobileMenu"
+      style="
+        width: 100vw;
+        position: absolute;
+        top: 64px;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        visibility: hidden;
+      "
+    >
+      <style>
+        .menuItem {
+          color: white;
+          padding: 5px 10px;
+          font-size: large;
+          margin: 1;
+          background-color: rgba(52,52,52,0.2);
+        }
+        .menuItem:active {
+          background-color: #4A4A5B;
+        }
+      </style>
+        <a class="menuItem" href="/index.html">Landing</a><br />
+
+ 
+      <a class="menuItem" href="/roadmap.html">Roadmap</a><br />
+      <a class="menuItem" href="/tutorial.html">Tutorials</a><br />
+      <a class="menuItem" href="/lab.html">Lab</a><br />
+    </div>
+
+    
+<div class="dark-wrapper">
+    <!-- Landing page Hero -->
+    <section class="hero is-fullheight is-transparent">
+        <div class="hero-head">
+
+            <!-- Cloned navbar -->
+            <!-- Cloned navbar that comes in on scroll -->
+            <nav x-data="initNavbar()"  x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark" :class="{
+                    'is-active': scrolled,
+                    '': !scrolled
+                }">
+                <div class="container">
+                    <!-- Brand -->
+                    <div class="navbar-brand">
+                        <a href="index.html" class="navbar-item">
+                            <img class="static" src="/img/logo/logo.svg" alt="">
+                            <span class="brand-name">Jupyter Network</span>
+                        </a>
+                        <!-- Responsive toggle -->
+                        <div class="navbar-burger" x-on:click="alert('Hello World!')">
+                            <div class="menu-toggle">
+                                <span class="icon-box-toggle" :class="{
+                                        'active': mobileOpen,
+                                        '': !mobileOpen
+                                    }">
+                                    <span class="rotate">
+                                        <i class="icon-line-top"></i>
+                                        <i class="icon-line-center"></i>
+                                        <i class="icon-line-bottom"></i>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Menu -->
+                    <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                            'is-active': mobileOpen,
+                            '': !mobileOpen
+                        }">
+                        <div class="navbar-end">
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="lab.html">Lab</a>
+                            </div>
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="roadmap.html">Roadmap</a>
+                            </div>
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="tutorial.html">Tutorials</a>
+                            </div>
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="https://t.me/jupyterofficial" target="_blank">
+                                    <img class="telegram" src="/img/logo/telegram.svg" alt="">
+                                    Telegram
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- /Cloned navbar -->
+            <!-- Static navbar -->
+            <!-- Static navbar -->
+            <nav  class="navbar is-light">
+              <div x-data="initNavbar()"   x-init="initNavbar()" class="container">
+                <!-- Brand -->
+                <div class="navbar-brand">
+                  <a href="index.html" class="navbar-item">
+                    <img class="static" src="/img/logo/logo.svg" alt="" />
+                    <span class="brand-name">Jupyter Network</span>
+                  </a>
+                  <!-- Responsive toggle -->
+                  <div class="navbar-burger">
+                    <button
+                      class="menu-toggle"
+                      onclick="
+                        let e = window.document.getElementById('mobileMenu')
+            
+                        if(e.style.visibility === 'visible'){
+                            e.style.visibility='visible';
+                        }else{
+                            e.style.visibility='visible';
+                        }
+            
+                      "
+                    >
+                    <p x-text="window.mobileOpen"></p>
+                      <span class="icon-box-toggle">
+                        <span class="rotate">
+                          <i class="icon-line-top"></i>
+                          <i class="icon-line-center"></i>
+                          <i class="icon-line-bottom"></i>
+                        </span>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+            
+                <!-- Menu -->
+                <div id="navbarMenu" class="navbar-menu light-menu">
+                  <div class="navbar-end">
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                      <a class="is-centered-responsive" href="lab.html">Lab</a>
+                    </div>
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                      <a class="is-centered-responsive" href="roadmap.html">Roadmap</a>
+                    </div>
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                      <a class="is-centered-responsive" href="tutorial.html">Tutorials</a>
+                    </div>
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                      <a
+                        class="is-centered-responsive"
+                        href="https://t.me/jupyterofficial"
+                        target="_blank"
+                      >
+                        <img class="telegram" src="/img/logo/telegram.svg" alt="" />
+                        Telegram
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <!-- /Static navbar -->
+
+        </div>
+
+
+
+        <!-- Hero Image and Title -->
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+
+                    <!-- Landing page Title -->
+                    <div class="column is-5 landing-caption">
+                        <h1 class="title is-1 is-light is-semibold is-spaced main-title">Jupyter : $IOM</h1>
+                        <h2 class="subtitle is-5 is-light is-thin">
+                            Iuppiterus Optimus Maximus.
+                        </h2>
+                        <!-- CTA -->
+                        <div class="cta-wrapper">
+                            <a href="https://pancakeswap.finance/swap?outputCurrency=0xd6ea4ec77fb7e0d5c331f9109f00ccede255b9c8" class="button k-button k-primary raised has-gradient is-fat is-bold">
+                                <span class="text">Buy on Pancakeswap</span>
+                                <span class="front-gradient"></span>
+                            </a>
+                        </div>
+                        <div class="cta-wrapper">
+                            <a href="https://tokpie.com/view_exchange/iom-usdt/" class="button k-button k-primary raised has-gradient is-fat is-bold">
+                                <span class="text">Buy on Tokpie</span>
+                                <span class="front-gradient"></span>
+                            </a>
+                        </div>
+
+
+                    </div>
+                    <!-- Hero image -->
+                    <div class="column is-7">
+                        <figure class="image">
+                            <img src="/img/logo/logo.svg" alt="">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- /Landing page Hero -->
+
+    <!-- Icon Features section -->
+    <section id="start" class="section is-transparent is-relative">
+        <!-- Container -->
+        <div class="container">
+
+            
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper is-medium">
+                <div class="columns is-vcentered">
+                    <!-- Feature -->
+                    <div class="column is-4">
+                        <div class="feature">
+                            <img src="" alt="" data-aos="fade-up" data-aos-delay="100" data-aos-offset="200" data-aos-easing="ease-out-quart">
+                            <h4 class="title is-6 is-tight is-light">What is the Jupyter Network ?</h4>
+                            <p>The Jupyter Network is a suite of decentralized applications (dApps) built on the BSC Blockchain.</p>
+                        </div>
+                    </div>
+                    <!-- Feature -->
+                    <div class="column is-4">
+                        <div class="feature">
+                            <img src="" alt="" data-aos="fade-up" data-aos-delay="300" data-aos-offset="200" data-aos-easing="ease-out-quart">
+                            <h4 class="title is-6 is-tight is-light">What is $IOM ?</h4>
+                            <p>$IOM is a BEP20 compatible token which can be used in all Ethereum wallets that support the Binance Smart Chain.</p>                          </p>
+                        </div>
+                    </div>
+                    <!-- Feature -->
+                    <div class="column is-4">
+                        <div class="feature">
+                            <img src="" alt="" data-aos="fade-up" data-aos-delay="500" data-aos-offset="200" data-aos-easing="ease-out-quart">
+                            <h4 class="title is-6 is-tight is-light">Where can i get $IOM ?</h4>
+                            <p>You can get your $IOM from Pancakeswap or later on from Jupyterswap.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Play video button -->
+                <div class="cta-wrapper has-text-centered">
+                    <iframe width="100%" height="500" frameBorder="0" scrolling="no" src="https://coinbrain.com/embed/0xd6ea4ec77fb7e0d5c331f9109f00ccede255b9c8?chainId=56&theme=dark&padding=16&chart=1&trades=1"></iframe>
+            </div>
+            <!-- Content wrapper -->
+        </div>
+        <!-- /Container -->
+    </section>
+    <!-- /Icon Features section -->
+
+    <!-- Side Features section -->
+    <section id="big-gradient" class="section is-transparent">
+        <!-- Container -->
+        <div class="container">
+            <!-- Divider -->
+            <div class="divider is-centered"></div>
+            <!-- Title & subtitle -->
+            <h2 class="title is-light is-semibold has-text-centered is-spaced">Token Info</h2>
+        
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper is-large">
+                      
+                <div class="columns is-centered">
+              <!-- Feature content -->
+              <div class="column is-5" style="text-align:left;">
+                <div class="side-feature-content">
+                    <div class="divider is-long"></div>
+
+                    <h3 class="title is-4 is-light" style="width:250px;"><img src="/img/logo/logo.svg" style="width:30px;"" alt=""></img><span>ᐅ Symbol: $ <b>I O M</b></span></h3>
+                </div>
+            </div>
+
+
+                    <!-- Feature content -->
+                    <div class="column is-5">
+                        <div class="side-feature-content">
+                            <div class="divider is-long"></div>
+                            <h3 class="title is-4 is-light"><img src="/img/icons/total.svg" style="width:30px;"" alt=""> <span>ᐅ Total Supply: 1'000'000'000</span></h3>
+
+                        </div>
+                    </div>
+
+                    <!-- Feature image only for mobile -->
+                </div>
+
+                <div class="columns is-centered">
+                    <!-- Feature content -->
+                    <div class="column is-5 ">
+                        <div class="side-feature-content">
+                            <div class="divider is-long"></div>
+                            <h3 class="title is-4 is-light"><img src="/img/icons/max.svg" alt=""> <span>ᐅ Max. Supply: 1'000'000'000</span></h3>
+                        </div>
+                    </div>
+
+                    <!-- Feature content -->
+                    <div class="column is-5">
+                        <div class="side-feature-content">
+                            <div class="divider is-long"></div>
+
+                            <h3 class="title is-4 is-light"><img src="/img/icons/circulation.svg" alt=""> <span>ᐅ Circulating supply: 500'000'000</span></h3>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /Content wrapper -->
+        </div>
+        <!-- /Container -->
+    </section>
+    <!-- /Side Features section -->
+
+    <!-- App section -->
+    <section class="section is-medium is-darkest">
+        <!-- Container -->
+        <div class="container">
+            <!-- Divider -->
+            <div class="divider is-centered"></div>
+            <!-- Title -->
+            <h2 class="title is-light is-semibold has-text-centered is-spaced">Energy Efficiency</h2>
+            <h4 class="subtitle is-6 is-light has-text-centered is-compact">The BNB chain combines both delegated PoS and PoA to achieve network consensus and maintain blockchain security.</h4>
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper is-large">
+
+                <!-- Row -->
+                <div class="columns is-vcentered">
+                    <div class="column is-5">
+                        <!-- Side feature -->
+                        <div class="side-feature-content">
+                            <!-- Title -->
+                            <h3 class="title is-4 is-light"><img src="" alt=""> <span>Thats why the BNB Chain is one of the fastest and most efficient blockchains.</span></h3>
+                            <!-- Divider -->
+                            <div class="divider is-long"></div>
+                            <!-- CTA -->
+                            <div class="cta-wrapper">
+                                <a href="https://adan.eu/en/article/blockchain-protocol-energy-footprint" class="button k-button k-primary raised has-gradient is-fat is-bold">
+                                    <span class="text">Blockchain protocols and their energy footprint</span>
+                                    <span class="front-gradient"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Featured image -->
+                    <div class="column is-7">
+                        <img class="side-feature" src="/img/media/energy.svg" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Content wrapper -->
+        </div>
+        <!-- /Container -->
+    </section>
+    <!-- /App section -->
+</div>
+
+ <footer class="krypton-footer">
+    <div class="container">
+        <!-- Logo -->
+        <div class="footer-logo">
+            <a href="index.html">
+                <img class="static" src="/img/logo/logo.svg" alt="">
+                <div class="brand-name">Jupyter Network</div>
+                <div class="brand-subtitle">Iuppiterus Optimus Maximus</div>
+            </a>
+        </div>
+        
+        <!-- Columns -->
+        <div class="columns footer-columns is-vcentered">
+            <div class="column is-4">
+                <!-- Links group -->
+                <ul class="footer-links">
+                    <li>
+                        <a href="lab.html">Lab</a>
+                    </li>
+
+                    <li>
+                        <a href="roadmap.html">Roadmap</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- Newsletter -->
+            <div class="column is-4">
+                <div class="subscribe-block">
+                    <form>
+                        <!-- Field -->
+                        <div class="control">
+                            <!-- Special input -->
+                            <p>
+                            <ul>
+                                <div className="padding-top:15px flex flex-col">
+                                    <a
+                                    href="https://twitter.com/jupytertoken" target="_blank"
+                                    className="social-icon button flex flex-col"
+                                    width="38px"
+                                    height="38px"
+                                >
+                                    <img width="40px" height="40px" src="/img/logo/twitter.svg" alt=""></img>
+                                </a>
+                                <a
+                                href="https://instagram.com/jupytertoken" target="_blank"
+                                className="social-icon button flex flex-col"
+                                width="38px"
+                                height="38px"
+                            >
+                                <img width="38px" height="38px" src="/img/logo/instagram.svg" alt=""></img>
+                            </a>
+                    <a
+                    href="https://www.facebook.com/JupyterToken/" target="_blank"
+                    className="social-icon button flex flex-col"
+                    width="50px"
+                    height="50px"
+                >
+                    <img width="40px" height="40px" src="/img/logo/facebook.svg" alt=""></img>
+                </a>
+                <a
+                href="https://jupytertech.medium.com/" target="_blank"
+                className="social-icon button flex flex-col"
+                width="50px"
+                height="50px"
+            >
+                <img width="40px" height="40px" src="/img/logo/medium.svg" alt=""></img>
+            </a>
+            <a
+                href="https://github.com/Jupyter-Network" target="_blank"
+                className="social-icon button flex flex-col"
+                width="50px"
+                height="50px"
+            >
+                <img width="40px" height="40px" src="/img/logo/github.svg" alt=""></img>
+            </a>
+                                </div>
+                                </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Links group -->
+            <div class="column is-4">
+                <ul class="footer-links">
+                    <li>
+                        <a href="tutorial.html">Tutorials</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Telegram</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <p class="k-copyright">© 2022 | Jupyter. All Rights Reserved</p>
+        <br>
+        <!-- Made by -->
+        <p class="coded-by">Designed and Coded by <a href="snnick.vercel.app" target="_blank">SNNICK</a></p>
+    </div>
+    
+    <!-- Absolute image -->
+    <img class="solar-system" src="/img/bg/solar.svg" alt="">
+</footer> <!-- Back To Top Button -->
+<div x-data="window.initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+    'visible': scrolled,
+    '': !scrolled
+}"></a></div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/bundle.js"></script>
+  </body>
+</html>

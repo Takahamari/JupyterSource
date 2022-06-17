@@ -1,0 +1,56 @@
+@charset "UTF-8";@keyframes plyr-progress{to{background-position:25px 0;background-position:var(--plyr-progress-loading-size,25px) 0}}@keyframes plyr-popup{0%{opacity:.5;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes plyr-fade-in{0%{opacity:0}to{opacity:1}}
+/* BASICS */
+
+/* PADDING */
+
+/* GUTTER */
+
+/* CURSOR */
+/* Shown when moving in bi-directional text */
+@keyframes blink {
+  0% {}
+  50% { background-color: transparent; }
+  100% {}
+}
+
+/* Can style cursor different in overwrite (non-insert) mode */
+
+/* DEFAULT THEME */
+
+/* Default styles for common addons */
+
+/* STOP */
+
+/* The rest of this file contains styles related to the mechanics of
+   the editor. You probably shouldn't touch them. */
+
+/* The fake, visible scrollbars. Used to force redraw during scrolling
+   before actual scrolling happens, thus preventing shaking and
+   flickering artifacts. */
+
+/* Force content-box sizing for the elements where we expect it */
+
+/* Used to force a border model for a node */
+
+@media print {
+  /* Hide the cursor when printing */
+}
+
+/* See issue #2901 */
+
+/* Help users use markselection to safely style text background */
+
+/*
+
+    Name:       shadowfox
+    Author:     overdodactyl (http://github.com/overdodactyl)
+
+    Original shadowfox color scheme by Firefox
+
+*/
+
+/*!
+ *  CryptoFont 0.1.1 by @AMPoellmann - http://cryptofont.com
+ *  License - http://cryptofont.com/#license (Font: SIL OFL 1.1, CSS: MIT License)
+ */@font-face{font-family:CryptoFont;src:url(../fonts/cryptofont-webfont.eot);src:url(../fonts/cryptofont-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/cryptofont-webfont.woff) format('woff2'),url(../fonts/cryptofont-webfont.woff) format('woff'),url(../fonts/cryptofont-webfont.ttf) format('truetype'),url(../fonts/cryptofont-webfont.svg#cryptofont-webfont) format('svg');font-weight:400;font-style:normal}
+/*# sourceMappingURL=app.css.map */
