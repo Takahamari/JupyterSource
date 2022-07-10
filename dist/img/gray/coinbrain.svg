@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="210mm"
+   viewBox="0 0 210 210"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="coinbrain.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.53298913"
+     inkscape:cx="863.05701"
+     inkscape:cy="-291.75079"
+     inkscape:window-width="2486"
+     inkscape:window-height="1376"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       id="paint0_linear_154_1279"
+       x1="32.3393"
+       y1="0"
+       x2="32.3393"
+       y2="41.9281"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#25FFAA"
+         id="stop3082" />
+      <stop
+         offset="1"
+         stop-color="#02A8CC"
+         id="stop3084" />
+    </linearGradient>
+    <linearGradient
+       id="paint1_linear_154_1279"
+       x1="9.64267"
+       y1="0.079834"
+       x2="9.64267"
+       y2="42.0002"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#0AE3CB"
+         id="stop3087" />
+      <stop
+         offset="1"
+         stop-color="#325DFF"
+         id="stop3089" />
+    </linearGradient>
+    <clipPath
+       id="clip0_154_1279">
+      <rect
+         width="42"
+         height="42"
+         fill="white"
+         id="rect3092" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       style="fill:none"
+       id="g3121"
+       transform="matrix(0.26458333,0,0,0.26458333,97.068054,73.230439)">
+      <g
+         clip-path="url(#clip0_154_1279)"
+         id="g3062"
+         transform="matrix(17.968003,0,0,17.968003,-345.29884,-257.34008)">
+        <path
+           d="m 41.259,14.1622 c 0.457,0.9712 0.7127,2.0556 0.7127,3.1989 0,2.0879 -0.853,3.9796 -2.2275,5.3444 0.62,1.1757 0.9506,2.4935 0.9506,3.8318 0,3.5824 -2.3371,6.7539 -5.7218,7.8227 0.1006,0.4499 0.1516,0.9009 0.1516,1.3447 0,3.4309 -2.7858,6.2221 -6.2094,6.2221 l -3.7572,0.0013 c -1.352,0 -2.4508,-1.1017 -2.4512,-2.4562 v -14.123 l 2.4774,2.4825 0.0069,0.007 c 0.6681,0.6695 1.7513,0.6695 2.4194,0 z M 26.6287,0 c 2.0836,0 3.7921,1.63598 3.9148,3.69331 0.3299,-0.06417 0.6602,-0.0971 0.9878,-0.0971 2.8841,0 5.2306,2.35099 5.2306,5.24126 0,0.44352 -0.0577,0.88099 -0.167,1.30673 0.928,0.2763 1.7815,0.7276 2.5221,1.3156 L 26.4009,24.2018 22.7068,20.5002 V 3.8929 c 0,-2.12823 1.7359,-3.857996 3.8575,-3.892378386 z"
+           fill="url(#paint0_linear_154_1279)"
+           id="path3058"
+           style="fill:url(#paint0_linear_154_1279)" />
+        <path
+           d="m 15.5136,18.1409 3.7516,3.7592 v 17.6432 c 0,1.3416 -1.0773,2.4348 -2.4103,2.4565 l -0.0405,4e-4 -3.7572,-0.0014 c -3.42425,0 -6.21005,-2.7915 -6.21005,-6.2224 0,-0.4435 0.05063,-0.8948 0.15156,-1.3447 C 5.15162,33.8486 3.6163,32.6391 2.60255,31.0783 Z M 15.344,0.079834 c 2.1357,0 3.876,1.560736 3.9199,3.857646 h 0.0013 v 6.57082 c 0,0.1234 0.0201,0.2487 0.0201,0.376 0,0.035 -0.0201,0.0666 -0.0201,0.0981 v 6.0691 l -2.542,-2.5471 -0.021,-0.0207 C 16.0326,13.835 14.9649,13.8419 14.3038,14.5044 L 1.32571,27.509 c -0.03274,-0.2964 -0.0495,-0.5968 -0.0495,-0.9001 0,-1.338 0.33096,-2.6561 0.95163,-3.8311 C 0.852708,21.4123 0,19.5206 0,17.433 0,14.0253 2.27143,11.1407 5.37645,10.2157 5.26781,9.79064 5.21013,9.3535 5.21013,8.90964 c 0,-2.88962 2.34621,-5.23996 5.23057,-5.23996 0.327,0 0.6579,0.03495 0.9875,0.09946 0.1228,-2.05701 1.8322,-3.689306 3.9158,-3.689306 z"
+           fill="url(#paint1_linear_154_1279)"
+           id="path3060"
+           style="fill:url(#paint1_linear_154_1279)" />
+      </g>
+    </g>
+  </g>
+</svg>
